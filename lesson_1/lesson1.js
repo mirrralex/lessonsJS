@@ -9,8 +9,8 @@ budget=prompt("Ваш бюджет на месяц?");
 mainList.budget = budget;
 shopName = prompt("Название вашего магазина?");
 mainList.shopName = shopName;
-for (var i = 1; i<=3; i++){
-shopGoods = prompt("Какой тип товаров будем продавать?", "");
+for (var i = 0; i<=2; i++){
+shopGoods[i] = prompt("Какой тип товаров будем продавать?", "");
 }
 var oneDayBudget = (mainList.budget)/30;
 
