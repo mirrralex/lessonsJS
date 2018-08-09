@@ -10,7 +10,7 @@ mainList.budget = budget;
 shopName = prompt("Название вашего магазина?");
 mainList.shopName = shopName;
 for (var i = 0; i<=2; i++){
-shopGoods[i] = prompt("Какой тип товаров будем продавать?", "");
+mainList.shopGoods[i] = prompt("Какой тип товаров будем продавать?", "");
 }
 var oneDayBudget = (mainList.budget)/30;
 
