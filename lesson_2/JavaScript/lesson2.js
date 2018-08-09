@@ -17,12 +17,12 @@ for (let i = 0; i<=2; i++) {
 
 	let things = prompt("Какой тип товаров будем продавать?");
 
-	if(typeof(things) === 'string' && typeof(things) === null && things != '' && things.length < 50){
+	if(typeof(things) === 'string' && typeof(things) != null && things != '' && things.length < 50){
 		
 		console.log("Все верно!");
 
 		mainList.shopGoods[i] = things;
-	} else if(typeof(things) === null) {
+	} else if(typeof(things) != null) {
 					console.log("Ответ отменен");
 					if(things != '') {
 						console.log("Ответ пуст");
@@ -41,7 +41,7 @@ var i = 0;
 /*while ( i < 3) {
 		let things = prompt("Какой тип товаров будем продавать?");
 
-	if(typeof(things) === 'string' && typeof(things) === null && things != '' && things.length < 50){	
+	if(typeof(things) === 'string' && typeof(things) != null && things != '' && things.length < 50){	
 		
 					console.log("Все верно!");
 
@@ -65,7 +65,7 @@ var i = 0;
 /*do {
 		let things = prompt("Какой тип товаров будем продавать?");
 
-	if(typeof(things) === 'string' && typeof(things) === null && things != '' && things.length < 50){	
+	if(typeof(things) === 'string' && typeof(things) != null && things != '' && things.length < 50){	
 		
 					console.log("Все верно!");
 
