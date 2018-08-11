@@ -83,8 +83,8 @@ for (let i = 0; i <= arr.length-1; i++) {
 		}
 		console.log(text);
 		if (text.length >= 20){
-			text = (text.substring(0 , 10)).replace(/ /g, "")+text.slice(10,-10)+(text.substring((text.length-10))).replace(/ /g, "");
-			if (text.length >= 50){
+			text = (text.substring(0 , 5)).replace(/ /g, "")+text.slice(5,-5)+(text.substring((text.length-5))).replace(/ /g, "");
+			if (text.length > 50){
 				text = text.slice(0, 49) + "...";
 			}
 		} 
