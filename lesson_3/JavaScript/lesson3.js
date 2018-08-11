@@ -9,7 +9,9 @@ let mainList = {
 };
 let employerNumb = 0;//Подсчет рбочих
 
-function start() {//Функция для начала
+let timeOfWork = 0;
+
+function start(budget, shopName, timeOfWork) {//Функция для начала
 
 	let money = prompt("Ваш бюджет на месяц?");
 
@@ -17,29 +19,37 @@ function start() {//Функция для начала
 		money = prompt("Ваш бюджет на месяц?"); 
 	}
 
+	budget = money;
+
 	let name = prompt("Название вашего магазина?").toUpperCase();
+
+	shopName = name;
+
 	let time = 21;
 
+	timeOfWork = time;
 }
+
 function disSystem(price, discount) {//Дисконт подсчет
 	if(discount == true){
 		price = price * 100 / 80;
 	}
 	return price;
 }
+
 function employerHurrying(employerNumb){ //Найм рабочих
 	
-	let employer = employerNumb + " " + (prompt("Какой тип товаров будем продавать?"));
+	let employer = employerNumb + " " + (prompt("Введите имя сотрудника?"));
+
+	employerNumb = employerNumb + 1;
 
 }
-	for(let i=0; i<=2; i++) {
-		mainList.employers[i] =  employerHurrying(employerNumb);
-	}
-start();
 
-mainList.budget = money;
+start(mainList.budget, mainList.shopName,timeOfWork);
 
-mainList.shopName = name;
+for(let i=0; i<=2; i++) {
+	mainList.employers[i] =  employerHurrying(employerNumb);
+}
 
 function chooseGoods(){//Товары для продажи
 
@@ -80,6 +90,8 @@ function workTime(time) {
 					console.log('В сутках только 24 часа!');
 					}
 }
+
+//Подсчет бюджета
 function oneDayBudget(budget){
 	return budget/30; 
 }
