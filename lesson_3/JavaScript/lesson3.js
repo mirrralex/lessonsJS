@@ -7,11 +7,14 @@ let mainList = {
 	open: true,
 	discount: false
 };
+
 let employerNumb = 0;//Подсчет рбочих
 
-let timeOfWork = 0;
+let timeOfWork = 0;//Время работы
 
 function start(budget, shopName, timeOfWork) {//Функция для начала
+
+	let name = prompt("Название вашего магазина?").toUpperCase();
 
 	let money = prompt("Ваш бюджет на месяц?");
 
@@ -19,13 +22,11 @@ function start(budget, shopName, timeOfWork) {//Функция для начал
 		money = prompt("Ваш бюджет на месяц?"); 
 	}
 
-	budget = money;
-
-	let name = prompt("Название вашего магазина?").toUpperCase();
+	let time = 21;
 
 	shopName = name;
 
-	let time = 21;
+	budget = money;
 
 	timeOfWork = time;
 }
@@ -37,21 +38,15 @@ function disSystem(price, discount) {//Дисконт подсчет
 	return price;
 }
 
-function employerHurrying(employerNumb){ //Найм рабочих
+function employerHurrying(employer, employerNumb){ //Найм рабочих
 	
-	let employer = employerNumb + " " + (prompt("Введите имя сотрудника?"));
+	employer = employerNumb + " " + (prompt("Введите имя сотрудника?"));
 
 	employerNumb = employerNumb + 1;
 
 }
 
-start(mainList.budget, mainList.shopName,timeOfWork);
-
-for(let i=0; i<=2; i++) {
-	mainList.employers[i] =  employerHurrying(employerNumb);
-}
-
-function chooseGoods(){//Товары для продажи
+function chooseGoods(shopGoods){//Товары для продажи
 
 	for (let i = 0; i<=2; i++) {
 
@@ -61,7 +56,7 @@ function chooseGoods(){//Товары для продажи
 			
 			console.log("Все верно!");
 
-			mainList.shopGoods[i] = things;
+			shopGoods[i] = things;
 		} else if(typeof(things) != null) {
 						console.log("Ответ отменен");
 						if(things != '') {
@@ -77,11 +72,9 @@ function chooseGoods(){//Товары для продажи
 	}
 }
 
-chooseGoods();
-
 function workTime(time) {
 	if (time < 0 ) {
-		console.log('Ефкого не может быть!');
+		console.log('Такого не может быть!');
 	} else if (time > 8 && time < 20) {
 			console.log('Время работать!');
 			} else if (time < 24) {
@@ -92,9 +85,16 @@ function workTime(time) {
 }
 
 //Подсчет бюджета
-function oneDayBudget(budget){
+function oneDayBudget(budget){//Бюджет на один день
 	return budget/30; 
 }
-let dayBudget = oneDayBudget(mainList.budget);
 
-alert("Ваш бюджет на день: " + oneDayBudget);
+start(mainList.budget, mainList.shopName,timeOfWork);
+
+for(let i=0; i<=3; i++) {
+	employerHurrying(mainList.employers[i], employerNumb);
+}
+
+chooseGoods(mainList.shopGoods);
+
+alert("Ваш бюджет на день: " + oneDayBudget(mainList.budget);
