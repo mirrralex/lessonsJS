@@ -1,34 +1,39 @@
 /*jshint esversion: 6 */
+let	name,
+	money,
+	time,
+	empl,
+	employer;
+
+
 let mainList = {
 	budget: 0,
 	shopName: "",
 	shopGoods: [],
-	employers: {},
+	employers: { },
+	employersNumb: 1,//Подсчет рбочих
 	open: true,
 	discount: false
 };
 
-let employerNumb = 0;//Подсчет рбочих
 
-let timeOfWork = 0;//Время работы
 
-function start(budget, shopName, timeOfWork) {//Функция для начала
+function start() {//Функция для начала
 
-	let name = prompt("Название вашего магазина?").toUpperCase();
+	name = prompt("Название вашего магазина?").toUpperCase();
 
-	let money = prompt("Ваш бюджет на месяц?");
+	money = prompt("Ваш бюджет на месяц?");
 
 	while(isNaN(money) || money == "" || money == null) {
 		money = prompt("Ваш бюджет на месяц?"); 
 	}
 
-	let time = 21;
+	time = 21;
 
-	shopName = name;
 
-	budget = money;
+	
 
-	timeOfWork = time;
+	return name, money, time;
 }
 
 function disSystem(price, discount) {//Дисконт подсчет
@@ -38,12 +43,18 @@ function disSystem(price, discount) {//Дисконт подсчет
 	return price;
 }
 
-function employerHurrying(employer, employerNumb){ //Найм рабочих
+function employerHurrying(employerNumb){ //Найм рабочих
+
+	empl = prompt("Введите имя сотрудника?","");
 	
-	employer = employerNumb + " " + (prompt("Введите имя сотрудника?"));
+	employer = "ID" + employerNumb + " " + empl;
 
-	employerNumb = employerNumb + 1;
+	employerNumb = 1+employerNumb;
 
+	console.log(employer);
+	console.log(employerNumb);
+
+	return employerNumb;
 }
 
 function chooseGoods(shopGoods){//Товары для продажи
@@ -70,6 +81,8 @@ function chooseGoods(shopGoods){//Товары для продажи
 						}
 					}
 	}
+
+	return shopGoods;
 }
 
 function workTime(time) {
@@ -82,19 +95,29 @@ function workTime(time) {
 				} else {
 					console.log('В сутках только 24 часа!');
 					}
+	return time;
 }
 
 //Подсчет бюджета
 function oneDayBudget(budget){//Бюджет на один день
-	return budget/30; 
+	return budget/30;
 }
+start();
 
-start(mainList.budget, mainList.shopName,timeOfWork);
+mainList.shopName = name;
+
+mainList.budget = money;
+
+console.log(mainList.shopName);
+
+console.log(mainList.budget);
 
 for(let i=0; i<=3; i++) {
-	employerHurrying(mainList.employers[i], employerNumb);
+	mainList.employersNumb = employerHurrying(mainList.employersNumb);
+	mainList.employers[i] = employer;
+	
 }
 
-chooseGoods(mainList.shopGoods);
+mainList.shopGoods = chooseGoods(mainList.shopGoods);
 
 alert("Ваш бюджет на день: " + oneDayBudget(mainList.budget));
