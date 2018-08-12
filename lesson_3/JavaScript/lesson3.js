@@ -97,4 +97,4 @@ for(let i=0; i<=3; i++) {
 
 chooseGoods(mainList.shopGoods);
 
-alert("Ваш бюджет на день: " + oneDayBudget(mainList.budget);
+alert("Ваш бюджет на день: " + oneDayBudget(mainList.budget));
