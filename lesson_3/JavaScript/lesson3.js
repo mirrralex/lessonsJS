@@ -108,10 +108,6 @@ mainList.shopName = name;
 
 mainList.budget = money;
 
-console.log(mainList.shopName);
-
-console.log(mainList.budget);
-
 for(let i=0; i<=3; i++) {
 	mainList.employersNumb = employerHurrying(mainList.employersNumb);
 	mainList.employers[i] = employer;
