@@ -24,7 +24,7 @@ let mainList = {
 			
 			console.log("Все верно!");
 
-			shopGoods[i] = things;
+			mainList.shopGoods[i] = things;
 		} else if(typeof(things) != null) {
 						console.log("Ответ отменен");
 						if(things != '') {
