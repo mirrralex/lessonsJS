@@ -13,16 +13,16 @@ function simpleNumbers(start, end) {
 						console.log("Делители этого числа: 1 и " + arr[i]);
 					} else if(arr[i] == 7) {
 						console.log("Делители этого числа: 1 и " + arr[i]);
+						}
 				} else if(arr[i] == 5) {
 					console.log("Делители этого числа: 1 и " + arr[i]);
+					}
 			} else if(arr[i] == 3) {
 				console.log("Делители этого числа: 1 и " + arr[i]);
+				}
 		} else if(arr[i] == 2) {
 			console.log("Делители этого числа: 1 и " + arr[i]);
 			}
-				}
-			}
-		}
 	}
 }
 simpleNumbers(1,100);
