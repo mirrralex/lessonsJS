@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 let mainList = {
-	budget: 0,
+	budget: null,
 	shopName: "",
 	shopGoods: [],
 	employers: {},
@@ -37,8 +37,10 @@ let openShopBtn = document.getElementById("open-btn"),
 	hireEmployer2 = hireEmployers[1],
 	hireEmployer3 = hireEmployers[2];
 
-let	money,
+let	money = null,
 		fieldCheck;
+		hireButton.disabled = true;
+		applyButton.disabled = true;
 
 fieldForTime.addEventListener('change', () => {
 	time = fieldForTime.value;
@@ -96,6 +98,77 @@ openShopBtn.addEventListener('click', () => {
 	}
 });
 //Кнопка утверждения товаров
+/*for (let i = 0; i < goodsItem.length; i++){
+	goodsItem[i].addEventListener('change', () => {
+
+		goodsItem[i].value = goodsItem[i].value;
+
+		for (let i = 0; i < goodsItem.length; i++){
+			applyButton.disabled = true;
+			if(goodsItem[i].value != null) {
+				} else {
+				applyButton.disabled = false;
+			}
+		}
+	});
+}*/
+
+goodsItem[0].addEventListener('change', () => {
+
+	goodsItem[0].value = goodsItem[0].value;
+
+	for (let i = 0; i < goodsItem.length; i++){
+
+		applyButton.disabled = true;
+
+		if(goodsItem[i].value != '') {
+			applyButton.disabled = false;
+			}
+	}
+});
+
+goodsItem[1].addEventListener('change', () => {
+
+	goodsItem[1].value = goodsItem[1].value;
+
+	for (let i = 0; i < goodsItem.length; i++){
+
+		applyButton.disabled = true;
+
+		if(goodsItem[i].value != '') {
+			applyButton.disabled = false;
+			} 
+	}
+});
+
+goodsItem[2].addEventListener('change', () => {
+
+	goodsItem[2].value = goodsItem[2].value;
+
+	for (let i = 0; i < goodsItem.length; i++){
+
+		applyButton.disabled = true;
+
+		if(goodsItem[i].value != '') {
+			applyButton.disabled = false;
+			}			
+		}
+});
+
+goodsItem[3].addEventListener('change', () => {
+
+	goodsItem[3].value = goodsItem[3].value;
+
+	for (let i = 0; i < goodsItem.length; i++){
+
+		applyButton.disabled = true;
+
+		if(goodsItem[i].value != '') {
+			applyButton.disabled = false;
+			}
+		}
+});
+
 applyButton.addEventListener('click', () => {
 
 	if(mainList.open == true){
@@ -164,20 +237,53 @@ calculateButton.addEventListener('click', () => {
 });
 
 //Кнопка найма
+hireEmployer1.addEventListener('change', () => {
+
+	hireEmployer1.value = hireEmployer1.value;
+
+	for (let i = 0; i < (hireEmployers.length-1); i++){
+		hireButton.disabled = true;
+		if(hireEmployers[i].value != '') {
+			hireButton.disabled = false;
+		}
+	}
+});
+
+hireEmployer2.addEventListener('change', () => {
+
+	hireEmployer2.value = hireEmployer2.value;
+
+	for (let i = 0; i < (hireEmployers.length-1); i++){
+		hireButton.disabled = true;
+		if(hireEmployers[i].value != '') {
+			hireButton.disabled = false;
+		}
+	}
+});
+
+hireEmployer3.addEventListener('change', () => {
+
+	hireEmployer3.value = hireEmployer3.value;
+
+	for (let i = 0; i < (hireEmployers.length-1); i++){
+		hireButton.disabled = true;
+		if(hireEmployers[i].value != '') {
+			hireButton.disabled = false;
+		}
+	}
+});
+
 hireButton.addEventListener('click', () => {
 
 	if(mainList.open == true){
 
 		for (let i = 0; i < hireEmployers.length; i++){
 
-			if(hireEmployers[i].value != null) {
-
 			let name = hireEmployers[i].value;
 
 			mainList.employers[i] = name;
 
 			employersValue.textContent += mainList.employers[i] + " ";
-			}
 		}
 	} else {
 		alert("Магазин закрыт");
