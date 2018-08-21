@@ -2,9 +2,17 @@
 let dom = document.getElementsByTagName('div')[0],
 	startTime = new Date(),
 	lastTime = new Date();
-	lastTime.setMinutes(startTime.getMinutes() + 1);
+	lastTime.setMinutes(startTime.getMinutes() + 5);
 
-while (startTime < lastTime){
+function clockGo(startTime, lastTime) {
+
+	while (startTime < lastTime){
+
+
+	}
+}
+
+let timer = setInterval(function() {
 
 	let	hour = startTime.getHours(),
 		min = startTime.getMinutes(),
@@ -28,7 +36,13 @@ while (startTime < lastTime){
 
 	}
 
-	dom.textContent = dom.textContent + '\n\r' + hour + '.' + min + '.' + sec;
+	dom.textContent = hour + '.' + min + '.' + sec;
 
 	startTime.setSeconds(startTime.getSeconds() + 1);
-}
+
+}, 1000, startTime, lastTime);
+
+setTimeout(function() {
+	clearInterval(timer);
+	alert('Таймер остновился!');
+}, 300000);
