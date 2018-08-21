@@ -50,7 +50,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	//timer 
 
-	let deadline = '2018-08-21';
+	let deadline = '2018-08-22';
 
 	function getTimeRemaining(endTime) {
 
@@ -89,8 +89,8 @@ window.addEventListener('DOMContentLoaded', function() {
 	function setClock(id, endTime) {
 
 		let timer = document.getElementById(id),
-			hours = timer.querySelector('.hours');
-			minutes = timer.querySelector('.minutes');
+			hours = timer.querySelector('.hours'),
+			minutes = timer.querySelector('.minutes'),
 			seconds = timer.querySelector('.seconds');
 
 		function updateClock() {
@@ -136,11 +136,20 @@ window.addEventListener('DOMContentLoaded', function() {
 			}
 		}
 
-		updateClock();
-
 		let timeInterval = setInterval(updateClock, 1000);
 	}
 	
 	setClock('timer', deadline);
 
+	//Page Jump
+/*document.querySelectorAll("header~ul~li").style.transition = 'ease';
+document.querySelectorAll("header~ul~li").style.transitionDelay = '2s';*/
+	let liList = document.querySelectorAll("li");
+	for (let i = 0; i < liList.length; i++){
+		document.body.style.transitionTimingFunction = 'ease';
+		document.body.style.transitionDelay = '8s';
+
+		liList[i].style.transitionTimingFunction = 'ease';
+		liList[i].style.transitionDelay = '8s';
+	}
 });
