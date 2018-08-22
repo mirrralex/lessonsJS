@@ -158,7 +158,7 @@ document.querySelectorAll("header~ul~li").style.transitionDelay = '2s';*/
 	let more = document.querySelector('.more'),
 		overlay = document.querySelector('.overlay'),
 		close = document.querySelector('.popup-close'),
-		moreDescription = document.querySelector('.description-btn');
+		moreDescription = document.querySelectorAll('.description-btn');
 
 	console.log(moreDescription);
 
@@ -173,10 +173,11 @@ document.querySelectorAll("header~ul~li").style.transitionDelay = '2s';*/
 		more.classList.remove('more-splash');
 		document.body.style.overflow = '';
 	});
-
-	moreDescription.addEventListener('click', function() {
-		this.classList.add('more-splash');
-		overlay.style.display = "block";
-		document.body.style.overflow = 'hidden';
-	});
+	for (let i = 0; i < moreDescription.length; i++){
+		moreDescription[i].addEventListener('click', function() {
+			this.classList.add('more-splash');
+			overlay.style.display = "block";
+			document.body.style.overflow = 'hidden';
+		});
+	}	
 });
