@@ -25,4 +25,4 @@ function enterList(autofocus, autofocusList, counrtiesLength) {
 	} 
 }
 
-autofocus.addEventListener('onchange', enterList(autofocus, autofocusList, counrtiesLength));
+autofocus.addEventListener('change', enterList(autofocus, autofocusList, counrtiesLength));
