@@ -180,3 +180,4 @@ document.querySelectorAll("header~ul~li").style.transitionDelay = '2s';*/
 		}
 	});
 });
+//Вот залил только что
