@@ -1,11 +1,11 @@
 /*jshint esversion: 6 */
 class options {
 	constructor() {
-		this.height = '20px';
-	  this.width ='700px';
-	  this.backGround = 'red';
-	  this.fontSize = '100%';
-	  this.textAlign = 'center';
+		this.height = 20;
+	  this.width = 700;
+	  this.backGround = "red";
+	  this.fontSize = "100%";
+	  this.textAlign = "center";
 	}
 	newDiv(name, text, place) {
 		let div = document.createElement('div');
