@@ -186,7 +186,7 @@ window.addEventListener('DOMContentLoaded', function() {
   let message = new Object();
 	message.loading = "Загрузка ...";
 	message.success = "Спасибо! Скоро мы с вами свяжемся";
-	message.failure = "Что-то пошло е так...";
+	message.failure = "Что-то пошло не так...";
 
 	let form = document.getElementsByClassName('main-form')[0],
 			input = form.getElementsByTagName('input'),
@@ -214,13 +214,13 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			if(request.readyState < 4) {
 
-				statusMessage.innerHTML = message.loading;
+				statusMessage.innerHTML = "<img id=img src = 'http://localhost/lessons/lesson_11/img/ajax-loader.gif'>";
 
 			} else if (request.readyState === 4) {
 
 				if(request.status === 200 && request.status < 300) {
 
-					statusMessage.innerHTML = message.success;
+					statusMessage.innerHTML = "<img id=img  src = 'http://localhost/lessons/lesson_11/img/loadComplete.jpg'>";
 					//Добавден контент на страницу
 
 				} else {
@@ -276,12 +276,11 @@ window.addEventListener('DOMContentLoaded', function() {
 					statusMessage.innerHTML = message.failure;
 				}
 			}
-		};
-	});
-
-	for (let i = 0; i < input.length; i++) {
+		}
+		for (let i = 0; i < input.length; i++) {
 
 		inputContact[i].value = '';
 		//Очищаем поля ввода
 	}
+	});
 });
