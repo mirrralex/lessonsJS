@@ -172,8 +172,9 @@ document.querySelectorAll("header~ul~li").style.transitionDelay = '2s';*/
 		document.body.style.overflow = '';
 	});
 
-	moreDescription.addEventListener('click', function() {
-		if(event.target.matches('div.description-btn')){
+	moreDescription.addEventListener('click', function(event) {
+		e = event.target.matches('div.description-btn')
+		if(e == true){
 			this.classList.add('more-splash');
 			overlay.style.display = "block";
 			document.body.style.overflow = 'hidden';

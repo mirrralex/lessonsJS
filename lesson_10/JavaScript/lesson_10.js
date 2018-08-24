@@ -19,5 +19,5 @@ class options {
 		place.appendChild(div);
 	}
 };
-const div = new options('10px', '10px', 'green', '100%', 'center');
+const div = new options('20px', '700px', 'green', '100%', 'center');
 div.newDiv('first', 'abrakadabra', document.body);
