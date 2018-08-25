@@ -10,12 +10,12 @@ class options {
 	newDiv(name, text, place) {
 		let div = document.createElement('div');
 		div.className = '${name}';
-		div.innerHTML = text + ' ';
-		div.height = this.height;
-		div.width = this.width;
-		div.backgroundColor = this.backGround;
-		div.fontSize = this.fontSize;
-		div.textAlign = this.textAlign;
+		div.textContent = text + ' ';
+		div.style.height = this.height;
+		div.style.width = this.width;
+		div.style.backgroundColor = this.backGround;
+		div.style.fontSize = this.fontSize;
+		div.style.textAlign = this.textAlign;
 		place.appendChild(div);
 	}
 };
