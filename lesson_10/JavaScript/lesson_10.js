@@ -1,23 +1,23 @@
 /*jshint esversion: 6 */
 class options {
-	constructor() {
-		this.height = 20;
-	  this.width = 700;
-	  this.backGround = "red";
-	  this.fontSize = "100%";
-	  this.textAlign = "center";
+	constructor(height, width, backGround, fontSize, textAlign, text) {
+		this.height = height;
+	  this.width = width
+	  this.backGround = backGround;
+	  this.fontSize = fontSize;
+	  this.textAlign = textAlign;
+	  this.text = text;
 	}
-	newDiv(name, text, place) {
+	newDiv() {
 		let div = document.createElement('div');
-		div.className = '${name}';
-		div.textContent = text + ' ';
+		div.textContent = this.text;
 		div.style.height = this.height;
 		div.style.width = this.width;
 		div.style.backgroundColor = this.backGround;
 		div.style.fontSize = this.fontSize;
 		div.style.textAlign = this.textAlign;
-		place.appendChild(div);
+		document.body.appendChild(div);
 	}
 };
-let div = new options();
-div.newDiv('first', 'abrakadabra', document.body);
+let div = new options('50px', '600px', '#f0f0f0', '16px', 'center', 'abrabrabra');
+div.newDiv();
