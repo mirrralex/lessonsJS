@@ -365,12 +365,17 @@ window.addEventListener('DOMContentLoaded', function() {
 			total = (daySum + personsSum) * 4000;
 			if (total == 0){
 				totalValue.innerHTML = alterniteTotal;
-			} else {
+				} else {
 				totalValue.innerHTML = total;
-			}
-			} else if (total == 0 && alterniteTotal == 0){
-				alert('Введите целые числа');
-			}
+				}
+			} else if (((personsSum-1+1)%1) == 0) {
+				if (total == 0 && alterniteTotal == 0){
+					alert('Введите целые числа');
+				}
+			}  else {
+					totalValue.innerHTML = 0;
+					alert('Введите целое количество людей');
+				}
 	});
 
 	restDays.addEventListener('change', function() {
@@ -385,10 +390,15 @@ window.addEventListener('DOMContentLoaded', function() {
 				totalValue.innerHTML = alterniteTotal;
 			} else {
 				totalValue.innerHTML = total;
-			}
+				}
+			} else if (((daySum-1+1)%1) == 0) {
+				if (total == 0 && alterniteTotal == 0){
+					alert('Введите целые числа');
+				}
 			} else {
-				alert('Введите целые числа');
-			}
+					totalValue.innerHTML = 0;
+					alert('Введите целое количество дней');
+				}
 	});
 
 	place.addEventListener('change', function() {
