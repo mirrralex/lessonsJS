@@ -1,6 +1,8 @@
 /*jshint esversion: 6 */
 window.addEventListener('DOMContentLoaded', function() {
 
+	require("babel-core").transform("code", options);
+
 	let tab = require('../js/tab.js'),
 		calculator = require('../js/calculator.js'),
 		model = require('../js/model.js'),

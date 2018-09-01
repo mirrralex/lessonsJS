@@ -37,7 +37,7 @@ function learnMoreTab(){
 
 				if(request.status === 200 && request.status < 300) {
 
-					statusMessage.innerHTML = "<img id=img  src = 'http://localhost/lessons/lesson_14/img/loadComplete.jpg'>";
+					statusMessage.innerHTML = "<img id=img  src = '../img/loadComplete.jpg'>";
 					//Добавден контент на страницу
 
 				} else {
@@ -46,13 +46,24 @@ function learnMoreTab(){
 				}
 			}
 		};
+
+		for (var i = 0; i < input.length; i++) {
+
+			input[i].value = '';
+
+			setTimeout( () => {
+
+			statusMessage.hidden = true;
+
+			console.log(statusMessage);
+
+			}, 3000);
+
+
+		}
 	});
 
-	for (let i = 0; i < input.length; i++) {
 
-		input[i].value = '';
-		//Очищаем поля ввода
-	}
 
 	//Form for contact us
 	let formContact = document.getElementsByClassName('contact-form')[0],
@@ -94,11 +105,20 @@ function learnMoreTab(){
 				}
 			}
 		}
-		for (let i = 0; i < input.length; i++) {
+		for (var i = 0; i < input.length; i++) {
 
-		inputContact[i].value = '';
-		//Очищаем поля ввода
-	}
+			input[i].value = '';
+
+			setTimeout( () => {
+
+			statusMessage.hidden = true;
+
+			console.log(statusMessage);
+
+			}, 3000);
+
+
+		}
 	});
 }
 

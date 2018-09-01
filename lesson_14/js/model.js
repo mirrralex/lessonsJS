@@ -18,7 +18,7 @@ function model() {
 	});
 
 	moreDescription.addEventListener('click', function(event) {
-		e = event.target.matches('div.description-btn');
+		let e = event.target.matches('div.description-btn');
 		if(e == true){
 			this.classList.add('more-splash');
 			overlay.style.display = "block";
