@@ -17,14 +17,14 @@ function model() {
 		document.body.style.overflow = '';
 	});
 
-	moreDescription.addEventListener('click', function(event) {
-		let e = event.target.matches('div.description-btn');
-		if(e == true){
-			this.classList.add('more-splash');
-			overlay.style.display = "block";
-			document.body.style.overflow = 'hidden';
-		}
-	});
+		moreDescription.addEventListener('click', function (event) {
+			let e = document.querySelector('div.description-btn');
+			if (e == event.path[0]) {
+				this.classList.add('more-splash');
+				overlay.style.display = "block";
+				document.body.style.overflow = 'hidden';
+			}
+		});
 }
 
 module.exports = model();
