@@ -223,7 +223,8 @@
 
 			moreDescription.addEventListener('click', function (event) {
 				var e = document.querySelector('div.description-btn');
-				if (e == event.path[0]) {
+				var target = event.target;
+				if (e == target) {
 					this.classList.add('more-splash');
 					overlay.style.display = "block";
 					document.body.style.overflow = 'hidden';
