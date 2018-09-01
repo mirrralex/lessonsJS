@@ -70,4 +70,5 @@ function calculator() {
 
 	});
 }
-module.exports = calculator;
+
+module.exports = calculator();

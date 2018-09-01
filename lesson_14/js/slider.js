@@ -54,4 +54,5 @@ function slider() {
 		}
 	});
 }
-module.exports = slider;
+
+module.exports = slider();

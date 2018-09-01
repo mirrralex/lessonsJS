@@ -101,4 +101,5 @@ function learnMoreTab(){
 	}
 	});
 }
-module.exports = learnMoreTab;
+
+module.exports = learnMoreTab();
