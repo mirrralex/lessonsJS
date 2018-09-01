@@ -20,25 +20,5 @@ var myFunc = function(a){
 	}
 	return newArr;
 }
+
 console.log(each(aRR, myFunc));
-
-var assert = require('chai').assert;
-
-
-describe("sum", function() {
-	it("Sum возвращает true", function(){
-		assert.equals(sum, 'true');
-	})
-});
-console.log(num);
-describe("num", function() {
-	it("Num возвращает 5", function(){
-		assert.equals(num, 5);
-	})
-});
-
-describe("sum", function() {
-	it("Sum возвращает true", function(){
-		assert.equals(sum, 'true');
-	})
-});

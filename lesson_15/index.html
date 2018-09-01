@@ -6,17 +6,21 @@
 </head>
 <body>
 	<div id = "mocha"></div>
-	<script src="JavaScript/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/5.2.0/mocha.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/5.2.0/mocha.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.1.2/chai.min.js"></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/5.2.0/mocha.min.js"></script>
+
 	<script>
-		mocha.setup('bdd');
+   		mocha.setup('bdd');
 	</script>
+
 	<script src="JavaScript/script.js"></script>
 	<script src="JavaScript/test.js"></script>
-	<script> 
+
+	<script>
 		mocha.run();
 	</script>
+
+
 </body>
 </html>
