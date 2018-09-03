@@ -183,63 +183,74 @@ window.addEventListener('DOMContentLoaded', function() {
 	});
 
 	//Form for to learn more
-  let message = new Object();
-	message.loading = "Загрузка ...";
-	message.success = "Спасибо! Скоро мы с вами свяжемся";
-	message.failure = "Что-то пошло не так...";
+	let message = new Object();
 
-	let form = document.getElementsByClassName('main-form')[0],
+		message.loading = "Загрузка ...";
+		message.success = "Спасибо! Скоро мы с вами свяжемся";
+		message.failure = "Что-то пошло не так...";
+
+		let form = document.getElementsByClassName('main-form')[0],
+			formBotton = form.getElementsByClassName('popup-form__btn')[0] ,
 			input = form.getElementsByTagName('input'),
 			statusMessage = document.createElement('div');
+
 			statusMessage.classList.add('status');
 
-	form.addEventListener('submit',function(event){
+		function sendForm(elem) {
+			elem.addEventListener('submit', function(e) {
+				e.preventDefault();
+				elem.appendChild(statusMessage);
+				let formData = new FormData(elem);
 
-		event.preventDefault();
+				function postData(data) {
 
-		form.appendChild(statusMessage);
+					return new Promise(function(resolve, reject) {
+						let request = new XMLHttpRequest();
 
-		//AJAX
-		let request = new XMLHttpRequest();
+						request.open('POST', 'server.php');
 
-		request.open("POST", 'server.php');
+						request.setRequestHeader('Content-Type', 'aplication/x-www-form-urlencoded');
 
-		request.setRequestHeader("Content-Type", "aplication/x-www-form-urlencoded");
+						request.onreadystatechange = function() {
 
-		let formData = new FormData(form);
+							if (request.readyState < 4) {
+								resolve();
+							} else if (request.readyState === 4) {
+								if (request.status === 200 && request.status < 300) {
+									resolve();
+								} else {
+									reject();
+								}
+							}
+						};
 
-		request.send(formData);
+						request.send(data);
 
-		request.onreadystatechange = function(){
+					});
+				} //End postData
 
-			if(request.readyState < 4) {
-
-				statusMessage.innerHTML = "<img id=img src = 'http://localhost/lessons/lesson_11/img/ajax-loader.gif'>";
-
-			} else if (request.readyState === 4) {
-
-				if(request.status === 200 && request.status < 300) {
-
-					statusMessage.innerHTML = "<img id=img  src = 'http://localhost/lessons/lesson_11/img/loadComplete.jpg'>";
-					//Добавден контент на страницу
-
-				} else {
-
-					statusMessage.innerHTML = message.failure;
+				function clearInput() {
+					for (let i = 0; i < input.length; i++) {
+						input.value = '';
+					}
 				}
-			}
-		};
-	});
 
-	for (let i = 0; i < input.length; i++) {
+				postData(formData)
+					.then( () => statusMessage.innerHTML = message.loading)
+					.then( () => {
+						statusMessage.innerHTML = '';
+					})
+					.catch( () => statusMessage.innerHTML = message.failure)
+					.then(clearInput);
+			});
+		}
 
-		input[i].value = '';
-		//Очищаем поля ввода
-	}
+	sendForm(form);
+	sendForm(formBotton);
 
 	//Form for contact us
 	let formContact = document.getElementsByClassName('contact-form')[0],
-			inputContact = formContact.getElementsByTagName('input');
+		inputContact = formContact.getElementsByTagName('input');
 
 	formContact.addEventListener('submit',function(event) {
 
