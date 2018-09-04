@@ -26,7 +26,8 @@
 			    daySumArr = [],
 			    personsSumArr = [],
 			    alterniteTotal = 0,
-			    total = 0;
+			    total = 0,
+			    selectValue = 1;
 
 			totalValue.innerHTML = 0;
 
@@ -34,7 +35,7 @@
 				personsSum = this.value;
 				if (restDays.value == '' || restDays.value == 0) {
 					totalValue.innerHTML = 0;
-				} else if (personsSum != '' && (personsSum - 1 + 1) % 1 == 0 && personsSum != 'e' && personsSum != 0) {
+				} else if (personsSum != '' && (personsSum - 1 + 1) % personsSum == 0 && personsSum != 'e' && personsSum != 0) {
 					personsSumArr.unshift(personsSum);
 					alterniteTotal = (daySumArr[0] + personsSumArr[0]) * 4000;
 					total = (daySum + personsSum) * 4000;
@@ -51,6 +52,16 @@
 					totalValue.innerHTML = 0;
 					alert('Введите целое количество людей');
 				}
+				if (restDays.value == '' || persons.value == '' || restDays.value == 0 || persons.value == 0 || restDays.value == 'e' || persons.value == 'e') {
+					if (total == 0 && alterniteTotal == 0) {
+						totalValue.innerHTML = 0;
+					}
+					} else {
+
+						var a = total;
+						totalValue.innerHTML = a * selectValue;
+					}
+
 			});
 
 			restDays.addEventListener('change', function () {
@@ -74,16 +85,26 @@
 					totalValue.innerHTML = 0;
 					alert('Введите целое количество дней');
 				}
+				if (restDays.value == '' || persons.value == '' || restDays.value == 0 || persons.value == 0 || restDays.value == 'e' || persons.value == 'e') {
+					if (total == 0 && alterniteTotal == 0) {
+						totalValue.innerHTML = 0;
+					}
+					} else {
+
+						var a = total;
+						totalValue.innerHTML = a * selectValue;
+					}
 			});
 
 			place.addEventListener('change', function () {
-				if (restDays.value == '' || persons.value == '' || restDays.value == 0 || persons.value == 0 || restDays.value == 'e' || persons.value == 'e') {
-					totalValue.innerHTML = 0;
-				} else {
+				selectValue = this.options[this.selectedIndex].value;
+			if (restDays.value == '' || persons.value == '' || restDays.value == 0 || persons.value == 0 || restDays.value == 'e' || persons.value == 'e') {
+				totalValue.innerHTML = 0;
+			} else {
 
-					var a = total;
-					totalValue.innerHTML = a * this.options[this.selectedIndex].value;
-				}
+				var a = total;
+				totalValue.innerHTML = a * selectValue;
+			}
 			});
 		}
 
