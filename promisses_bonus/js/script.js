@@ -141,19 +141,6 @@ window.addEventListener('DOMContentLoaded', function() {
 	
 	setClock('timer', deadline);
 
-	//Page Jump
-	/*document.querySelectorAll("header~ul~li").style.transition = 'ease';
-	document.querySelectorAll("header~ul~li").style.transitionDelay = '2s';*/
-
-	let liList = document.querySelectorAll("li");
-	for (let i = 0; i < liList.length; i++){
-		document.body.style.transitionTimingFunction = 'ease';
-		document.body.style.transitionDelay = '8s';
-
-		liList[i].style.transitionTimingFunction = 'ease';
-		liList[i].style.transitionDelay = '8s';
-	}
-
 	//model
 
 	let more = document.querySelector('.more'),
@@ -194,7 +181,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			input = form.getElementsByTagName('input'),
 			statusMessage = document.createElement('div');
 
-			statusMessage.classList.add('status');
+		statusMessage.classList.add('status');
 
 		function sendForm(elem) {
 			elem.addEventListener('submit', function(e) {
@@ -229,19 +216,22 @@ window.addEventListener('DOMContentLoaded', function() {
 					});
 				} //End postData
 
-				function clearInput() {
-					for (let i = 0; i < input.length; i++) {
-						input.value = '';
-					}
-				}
-
 				postData(formData)
 					.then( () => statusMessage.innerHTML = message.loading)
 					.then( () => {
-						statusMessage.innerHTML = '';
+						statusMessage.innerHTML = message.success;
 					})
 					.catch( () => statusMessage.innerHTML = message.failure)
-					.then(clearInput);
+					.then(setTimeout(function() {
+						clearInput();
+						statusMessage.innerHTML = '';
+					}, 3000));
+
+				function clearInput() {
+					for (let i = 0; i < input.length; i++) {
+						input[i].value = '';
+					}
+				}
 			});
 		}
 
@@ -249,7 +239,7 @@ window.addEventListener('DOMContentLoaded', function() {
 	sendForm(formBotton);
 
 	//Form for contact us
-	let formContact = document.getElementsByClassName('contact-form')[0],
+/*	let formContact = document.getElementsByClassName('contact-form')[0],
 		inputContact = formContact.getElementsByTagName('input');
 
 	formContact.addEventListener('submit',function(event) {
@@ -293,5 +283,5 @@ window.addEventListener('DOMContentLoaded', function() {
 		inputContact[i].value = '';
 		//Очищаем поля ввода
 	}
-	});
+	});*/
 });

@@ -47,13 +47,14 @@
 
 				function clearInput() {
 					for (let i = 0; i < input.length; i++) {
-						input.value = '';
+						input[i].value = '';
 					}
 				}
 
 				postData(formData)
 					.then( () => statusMessage.innerHTML = message.loading)
 					.then( () => {
+						statusMessage.innerHTML = message.success;
 						statusMessage.innerHTML = '';
 					})
 					.catch( () => statusMessage.innerHTML = message.failure)
